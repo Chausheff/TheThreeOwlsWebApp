@@ -1,0 +1,61 @@
+﻿#logoImg {
+    max-height: 130px;
+}
+#headerNavigations a {
+    border-radius: 50%;
+    color: black;
+    text-decoration: solid;
+}
+
+.navigation-warper{
+    line-height:1;
+    padding-left:8%;
+    padding-right:8%;
+}
+
+.top-social-wrapper {
+    display: inline-block;
+    float: right;
+    padding: 10px 0px;
+}
+
+.top-navigation-right-text {
+    display: inline-block;
+    padding: 10px 10px;
+}
+
+#headerNavigations a:hover {
+    background-color: antiquewhite;
+    transform: scale(1.1);
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.navbar {
+    height: 150px;
+    font-size: larger;
+    font-weight: 800;
+}
+
+.article.card-img-top {
+    min-width: 300px;
+    min-height: 350px;
+}
+
+.card-text {
+    width: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+footer {
+    background-color:black;
+}

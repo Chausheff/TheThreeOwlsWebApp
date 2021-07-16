@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Трите Сови</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/customCss.css" />
+    <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="navigation-warper bg-secondary">
+            <div class="top-navigation-left">
+                <div class="top-social-wrapper">
+                    <a class="fa fa-facebook text-white" aria-hidden="true" href="https://www.facebook.com/%D0%9E%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80-%D0%A2%D1%80%D0%B8%D1%82%D0%B5-%D1%81%D0%BE%D0%B2%D0%B8-352266128437687"> Трите сови</a>
+                </div>
+            </div>
+            <div class="top-navigation-right">
+                <div class="top-navigation-right-text">
+                    <i class="fa fa-envelope text-white ml-3 mr-3"></i><span class="text-white">tritesovi@gmail.com</span>
+                </div>
+                <div class="top-navigation-right-text">
+                    <i class="fa fa-phone text-white ml-3 mr-3"></i><span class="text-white">089 596 5764</span>
+                </div>
+            </div>
+</div>
+        <div class="container col-lg-12 d-flex flex-lg-row align-items-lg-center justify-content-lg-between">
+            <div class="ml-5">
+                <nav class="navbar p-0 m-0 navbar-expand-sm  navbar-light bg-white mb-3">
+                    <a class="nav-link p-0 m-0 text-dark" asp-controller="Home" asp-action="Index">
+                        <img id="logoImg" src="~/images/Logo.jpg" alt="Logo" />
+                    </a>
+                </nav>
+            </div>
+            <div class="mr-3">
+                <div id="headerNavigations" class="container">
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="nav nav-pills nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle h4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Занималня
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item h4" href="#">Учебна занималня</a>
+                                    <a class="dropdown-item h4" href="#">Лятна занималня</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle h4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Езикови курсове
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item h4" href="#">За деца</a>
+                                    <a class="dropdown-item h4" href="#">За възрастни</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Teacher" asp-action="All">За нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Contacts" asp-action="Home">Контакти</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Blog" asp-action="All">Блог</a>
+                            </li>
+                        </ul>
+                    </div>
+                    @*<partial name="_LoginPartial" />*@
+                </div>
+            </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; @DateTime.UtcNow.Year Трите сови - <a asp-area="" asp-controller="Contacts" asp-action="Home">Контакти</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
