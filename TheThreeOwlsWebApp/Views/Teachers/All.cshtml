@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TheThreeOwlsWebApp.Models.Teachers.TeacherListingViewModel>
+
+@{
+    ViewData["Title"] = "Екип";
+}
+
+<h1>Нашия екип</h1>
+<a asp-controller="Teachers" asp-action="Add" class="btn btn-primary">Добави Преподавател</a>
+<div class="row">
+    @foreach (var teacher in Model)
+    {
+        <div class="card col-lg-3 p-3 m-3" style="width: 18rem;">
+            <img class="card-img-top" src="@teacher.Picture" alt="@teacher.FirstName @teacher.LastName">
+            <div class="card-body">
+                <h5 class="card-title">@teacher.FirstName @teacher.LastName</h5>
+                <p class="card-text">@teacher.Info</p>
+                <a asp-controller="Teachers" asp-action="Details" asp-route-id="@teacher.Id" class="btn btn-primary">Виж още</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,32 @@
+﻿@model TheThreeOwlsWebApp.Models.Teachers.TeacherAddingViewModel
+
+@{
+    ViewData["Title"] = "Добави Преподавател";
+}
+
+<form method="post">
+    <div class="container offset-3 col-6">
+        <h3 class="text-center"> Добави Преподавател</h3>
+        <div class="form-group">
+            <label asp-for="FirstName">Малко име</label>
+            <input asp-for="FirstName" class="form-control">
+            <span asp-validation-for="FirstName" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName">Фамилно име</label>
+            <input asp-for="LastName" class="form-control">
+            <span asp-validation-for="LastName" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Picture">Път до снимката</label>
+            <input asp-for="Picture" class="form-control">
+            <span asp-validation-for="Picture" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info">Информация за преподавателя</label>
+            <textarea asp-for="Info" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Info" class="small text-danger"></span>
+        </div>
+        <input class="btn btn-primary float-right" type="submit" value="Запази" />
+    </div>
+</form>
