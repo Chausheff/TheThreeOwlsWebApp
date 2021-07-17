@@ -1,4 +1,13 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function sendMail() {
+    var tempParams = {
+        from_name: document.getElementById("fromName").value,
+        to_name: document.getElementById("toName").value,
+        message: document.getElementById("message").value,
+    };
 
-// Write your JavaScript code.
+    emailjs.send('service_gvy327c','template_s89isc4', tempParams)
+        .then(function (res) {
+            document.getElementById("message").value = '';
+            alert("succsess", res.status);
+    })
+}

@@ -46,21 +46,21 @@
 
     <div class="form-group">
         <label>Име</label>
-        <input type="text" class="form-control">
+        <input id="fromName" type="text" class="form-control">
     </div>
 
     <div class="form-group">
         <label>Email</label>
-        <input type="text" class="form-control">
+        <input id="toName" type="text" class="form-control">
     </div>
 
     <div class="form-group">
         <label>Съобщение</label>
-        <textarea class="form-control" rows="7"></textarea>
+        <textarea id="message" class="form-control" rows="7"></textarea>
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary btn-block">Изпрати запитване</button>
+        <button onclick="sendMail()" class="btn btn-primary btn-block">Изпрати запитване</button>
     </div>
 
 </div>
