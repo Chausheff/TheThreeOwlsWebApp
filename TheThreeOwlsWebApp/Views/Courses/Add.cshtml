@@ -1,0 +1,57 @@
+﻿@model TheThreeOwlsWebApp.Models.Courses.AddCourseViewModel
+
+@{
+    ViewData["Title"] = "Добави Курс";
+}
+
+<form method="post">
+    <div class="container offset-3 col-6">
+        <h3 class="text-center"> Добави Курс</h3>
+        <div class="form-group">
+            <label asp-for="Languige">Език</label>
+            <input asp-for="Languige" class="form-control">
+            <span asp-validation-for="Languige" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name">Име</label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TeacherId">Преподавател</label>
+            <input asp-for="TeacherId" class="form-control">
+            <span asp-validation-for="TeacherId" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ForKids" class="checkbox-inline">
+                <input type="checkbox" asp-for="ForKids" />  За деца
+            </label>
+        </div>
+        <div class="form-group">
+            <label asp-for="StartDate">Начало</label>
+            <input asp-for="StartDate" class="form-control">
+            <span asp-validation-for="StartDate" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EndDate">Край</label>
+            <input asp-for="EndDate" class="form-control">
+            <span asp-validation-for="EndDate" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price">Цена</label>
+            <input asp-for="Price" class="form-control">
+            <span asp-validation-for="Price" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image">Път до снимката</label>
+            <input asp-for="Image" class="form-control">
+            <span asp-validation-for="Image" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Информация за курса</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Description" class="small text-danger"></span>
+        </div>
+        <input class="btn btn-primary float-right" type="submit" value="Запази" />
+    </div>
+</form>

@@ -62,12 +62,12 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle h4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle h4" asp-area="" asp-controller="Courses" asp-action="All" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Езикови курсове
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item h4" href="#">За деца</a>
-                                    <a class="dropdown-item h4" href="#">За възрастни</a>
+                                    <a class="dropdown-item h4"asp-controller="Courses" asp-action="All"asp-route-forKids ="true" >За деца</a>
+                                    <a class="dropdown-item h4" asp-controller="Courses" asp-action="All">За възрастни</a>
                                 </div>
                             </li>
                             <li class="nav-item">

@@ -1,21 +1,16 @@
-﻿namespace TheThreeOwlsWebApp.Data.Models
+﻿using System;
+namespace TheThreeOwlsWebApp.Models.Courses
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using static DataConstants;
-    public class Course
+    using static Data.DataConstants;
+    public class AddCourseViewModel
     {
-        [Key]
-        public string Id { get; init; } = Guid.NewGuid().ToString();
-
         [Required]
         [MaxLength(CourseNameMaxLength)]
-        public string Name { get; set; }
+        public string Name { get; init; }
 
-        [Required]
         public string TeacherId { get; set; }
-        public Teacher Teacher { get; set; }
 
         [Required]
         public string Description { get; set; }
