@@ -15,16 +15,9 @@
             this.data = data;
         }
 
-        public IActionResult All(string forKids)
+        public IActionResult All()
         {
-            var kidsCourse = false;
-            if (forKids == "true")
-            {
-                kidsCourse = true;
-            }
-
             var courses = this.data.Courses
-                .Where(c => c.ForKids == kidsCourse)
                  .Select(c => new CourseListingViewModel
                  {
                      Id = c.Id,
@@ -35,7 +28,8 @@
                      EndDate = c.EndDate,
                      Price = c.Price,
                      Image = c.Image,
-                     Languige = c.Languige
+                     Languige = c.Languige,
+                     Position = c.Position
                  })
                  .ToList();
 
@@ -56,7 +50,8 @@
                     ForKids = c.ForKids,
                     Languige = c.Languige,
                     Image = c.Image,
-                    Price = c.Price
+                    Price = c.Price,
+                    Position = c.Position
                 })
                 .FirstOrDefault();
             return View(course);
@@ -107,6 +102,7 @@
             editedCourse.ForKids = course.ForKids;
             editedCourse.EndDate = course.EndDate;
             editedCourse.Description = course.Description;
+            editedCourse.Position = course.Position;
 
             this.data.Courses.Update(editedCourse);
             this.data.SaveChanges();

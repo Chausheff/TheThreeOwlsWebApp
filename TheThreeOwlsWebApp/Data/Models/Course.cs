@@ -36,5 +36,7 @@
 
         [Required]
         public string Languige { get; set; }
+
+        public int Position { get; set; }
     }
 }

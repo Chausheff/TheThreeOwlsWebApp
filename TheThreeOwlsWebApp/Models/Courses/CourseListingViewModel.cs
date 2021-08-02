@@ -20,5 +20,7 @@
         public string Image { get; set; }
 
         public string Languige { get; set; }
+
+        public int Position { get; set; }
     }
 }

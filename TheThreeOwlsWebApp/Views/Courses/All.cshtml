@@ -5,10 +5,10 @@
 }
 
 <a asp-controller="Courses" asp-action="Add" class="btn btn-primary">Добави Курс</a>
-<div class="col-lg-4">
+<div class="row">
     @foreach (var course in Model)
     {
-        <div>
+        <div class="col-lg-4">
             <img src="@course.Image" alt="@course.Name" />
             <h5>@course.Name</h5>
             <h5>Начало - @course.StartDate</h5>
