@@ -7,6 +7,8 @@
     using TheThreeOwlsWebApp.Data;
     using TheThreeOwlsWebApp.Data.Models;
     using TheThreeOwlsWebApp.Models;
+    using TheThreeOwlsWebApp.Models.Courses;
+    using TheThreeOwlsWebApp.Models.Home;
     using TheThreeOwlsWebApp.Models.Intro;
 
     public class HomeController : Controller
@@ -32,7 +34,24 @@
                     Picture = c.Picture
                 })
                 .ToList();
-            return View(comments);
+
+            var courses = this.data.Courses
+                .Select(c => new CourseListingViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Description = c.Description,
+                    Image = c.Image,
+                    Position = c.Position
+                })
+                .OrderBy(c => c.Position)
+                .Take(6)
+                .ToList();
+
+            var home = new HomeViewModel();
+            home.courses = courses;
+            home.intros = comments;
+            return View(home);
         }
 
         public IActionResult Add() => View();
