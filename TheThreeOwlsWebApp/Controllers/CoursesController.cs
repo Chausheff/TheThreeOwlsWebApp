@@ -24,8 +24,6 @@
                      Name = c.Name,
                      Description = c.Description,
                      ForKids = c.ForKids,
-                     StartDate = c.StartDate,
-                     EndDate = c.EndDate,
                      Price = c.Price,
                      Image = c.Image,
                      Languige = c.Languige,
@@ -35,8 +33,29 @@
 
             return View(courses);
         }
+        public IActionResult Details(string Id)
+        {
+            var course = this.data.Courses
+                .Where(c => c.Id == Id)
+                 .Select(c => new CourseListingViewModel
+                 {
+                     Name = c.Name,
+                     Description = c.Description,
+                     ForKids = c.ForKids,
+                     Price = c.Price,
+                     Image = c.Image,
+                     Languige = c.Languige
+                 })
+                 .FirstOrDefault();
+            if (course != null)
+            {
+                return View(course);
+            }
+
+            return NotFound();
+        }
         public IActionResult Add() => View();
-        public IActionResult Details(string id)
+        public IActionResult Edit(string id)
         {
             var course = data.Courses
                 .Where(c =>c.Id == id)
@@ -45,8 +64,6 @@
                     Id = c.Id,
                     Name = c.Name,
                     Description = c.Description,
-                    StartDate = c.StartDate,
-                    EndDate = c.EndDate,
                     ForKids = c.ForKids,
                     Languige = c.Languige,
                     Image = c.Image,
@@ -68,10 +85,7 @@
             var newCourse = new Course
             {
                 Name = course.Name,
-                TeacherId = course.TeacherId,
                 ForKids = course.ForKids,
-                StartDate = course.StartDate,
-                EndDate = course.EndDate,
                 Price = course.Price,
                 Image = course.Image,
                 Description = course.Description,
@@ -84,7 +98,7 @@
             return RedirectToAction("All", "Courses");
         }
         [HttpPost]
-        public IActionResult Details(CourseListingViewModel course)
+        public IActionResult Edit(CourseListingViewModel course)
         {
             var editedCourse = data.Courses
                 .FirstOrDefault(c => c.Id == course.Id);
@@ -98,9 +112,7 @@
             editedCourse.Languige = course.Languige;
             editedCourse.Name = course.Name;
             editedCourse.Price = course.Price;
-            editedCourse.StartDate = course.StartDate;
             editedCourse.ForKids = course.ForKids;
-            editedCourse.EndDate = course.EndDate;
             editedCourse.Description = course.Description;
             editedCourse.Position = course.Position;
 

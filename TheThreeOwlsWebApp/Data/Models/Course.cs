@@ -14,18 +14,10 @@
         public string Name { get; set; }
 
         [Required]
-        public string TeacherId { get; set; }
-        public Teacher Teacher { get; set; }
-
-        [Required]
         public string Description { get; set; }
 
         [Required]
         public bool ForKids { get; set; } = false;
-
-        public DateTime StartDate { get; set; }
-
-        public DateTime EndDate { get; set; }
 
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }

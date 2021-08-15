@@ -27,10 +27,6 @@
         [Phone]
         public long Phone { get; set; }
 
-        public bool IsAdmin { get; set; } = false;
-
-        public bool IsBlocked { get; set; } = false;
-
         public string Picture { get; set; }
     }
 }
