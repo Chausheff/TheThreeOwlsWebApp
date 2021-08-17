@@ -10,17 +10,11 @@ namespace TheThreeOwlsWebApp.Models.Courses
         [MaxLength(CourseNameMaxLength)]
         public string Name { get; init; }
 
-        public string TeacherId { get; set; }
-
         [Required]
         public string Description { get; set; }
 
         [Required]
         public bool ForKids { get; set; } = false;
-
-        public DateTime StartDate { get; set; }
-
-        public DateTime EndDate { get; set; }
 
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }

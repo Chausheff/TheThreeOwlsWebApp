@@ -11,8 +11,6 @@
         <div onclick="openCourseDetails('@course.Id')" class="col-lg-4 course">
             <img src="@course.Image" alt="@course.Name" />
             <h5>@course.Name</h5>
-            <h5>Начало - @course.StartDate</h5>
-            <h5>Край -@course.EndDate</h5>
             <h5>Цена - @course.Price лв.</h5>
             <div>
                 <a asp-controller="Courses" asp-action="Edit" asp-route-id="@course.Id" class="btn btn-danger">Промени</a>

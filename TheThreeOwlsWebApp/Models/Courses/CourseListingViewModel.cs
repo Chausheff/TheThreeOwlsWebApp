@@ -11,10 +11,6 @@
 
         public bool ForKids { get; set; } = false;
 
-        public DateTime StartDate { get; set; }
-
-        public DateTime EndDate { get; set; }
-
         public decimal Price { get; set; }
 
         public string Image { get; set; }
