@@ -224,10 +224,6 @@ namespace TheThreeOwlsWebApp.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AuthorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -242,8 +238,6 @@ namespace TheThreeOwlsWebApp.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
 
                     b.ToTable("Articles");
                 });
@@ -454,17 +448,6 @@ namespace TheThreeOwlsWebApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TheThreeOwlsWebApp.Data.Models.Article", b =>
-                {
-                    b.HasOne("TheThreeOwlsWebApp.Data.Models.User", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("TheThreeOwlsWebApp.Data.Models.Comment", b =>

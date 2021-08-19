@@ -16,11 +16,6 @@
         public string Text { get; set; }
 
         [Required]
-        public string AuthorId { get; init; }
-
-        public User Author { get; init; }
-
-        [Required]
         public string Image { get; set; }
     }
 }

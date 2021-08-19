@@ -4,6 +4,7 @@
     {
         public const int ArticleTitleMaxLength = 30;
         public const int ArticleTitleMinLength = 2;
+        public const int ArticleTextMinLength = 7;
 
         public const int CourseNameMaxLength = 50;
         public const int CourseNameMinLength = 5;

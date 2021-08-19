@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TheThreeOwlsWebApp.Models.Blog.BlogListingViewModel>
+
+@{
+    ViewData["Title"] = "Всички статии";
+}
+
+<h1>All</h1>
+
+
+<h4>BlogListingViewModel</h4>
+<hr />
+
+<div class="row p-2 m-2">
+    @foreach (var article in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@article.Image" alt="@article.Title">
+            <div class="card-body">
+                <h5 class="card-title">@article.Title</h5>
+                <p class="card-text">@article.Text</p>
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@article.Id" class="btn btn-primary">Виж още</a>
+            </div>
+        </div>
+    }
+</div>

@@ -3,10 +3,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TheThreeOwlsWebApp.Migrations
 {
-    public partial class ChangedDb : Migration
+    public partial class ArticleChange : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Articles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Articles", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -218,27 +232,6 @@ namespace TheThreeOwlsWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Articles",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Articles", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Articles_Members_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "Members",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Comments",
                 columns: table => new
                 {
@@ -265,11 +258,6 @@ namespace TheThreeOwlsWebApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Articles_AuthorId",
-                table: "Articles",
-                column: "AuthorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
