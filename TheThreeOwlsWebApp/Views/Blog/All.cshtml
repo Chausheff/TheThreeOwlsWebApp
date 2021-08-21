@@ -4,12 +4,9 @@
     ViewData["Title"] = "Всички статии";
 }
 
-<h1>All</h1>
-
-
-<h4>BlogListingViewModel</h4>
+<h1>Всички статии</h1>
+<a asp-controller="Blog" asp-action="Add" class="btn btn-primary">Добави статия</a>
 <hr />
-
 <div class="row p-2 m-2">
     @foreach (var article in Model)
     {
