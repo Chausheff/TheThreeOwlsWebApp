@@ -17,47 +17,54 @@
 </head>
 <body>
     <header>
-        <div class="container col-lg-12 d-flex flex-lg-row align-items-lg-center justify-content-lg-between">
-            <div class="ml-5">
-                <nav class="navbar p-0 m-0 navbar-expand-sm  navbar-light bg-white mb-3">
-                    <a class="nav-link p-0 m-0 text-dark" asp-controller="Home" asp-action="Index">
-                        <img id="logoImg" src="~/images/Logo.jpg" alt="Logo" />
-                    </a>
-                </nav>
-            </div>
-            <div class="mr-3">
-                <div id="headerNavigations" class="container">
-                    <div class="navbar navbar-dark collapse d-sm-inline-flex justify-content-between">
-                        <ul class="nav nav-pills nav-fill">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark h4" asp-controller="Home" asp-action="Index">Начало</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle h4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Занималня
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item h4" href="#">Учебна занималня</a>
-                                    <a class="dropdown-item h4" href="#">Лятна занималня</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark h4" asp-controller="Courses" asp-action="All" >Езикови курсове</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Teachers" asp-action="All">За нас</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Contacts" asp-action="Index">Контакти</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark h4" asp-area="" asp-controller="Blog" asp-action="All">Блог</a>
-                            </li>
+        <div class="menu-container">
+            <div class="menu">
+                <a class="logo" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Logo-removebg-preview.png" alt="Logo" />
+                </a>
+                <ul class="clearfix">
+                    <li><a asp-controller="Home" asp-action="Index">Начало</a></li>
+                    <li>
+                        <a href="#">Занималня</a>
+                        <ul>
+                            <li><a href="#">Учебна занималня</a></li>
+                            <li><a href="#">Лятна занималня</a></li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
+                <li>
+                    <a asp-controller="Courses" asp-action="All">Езикови курсове</a>
+                    <ul>
+                        <li>
+                            <a href="#">Езикови курсове за възрастни</a>
+                            <ul>
+                                <li><a href="#">Английски език за възрастни</a></li>
+                                <li><a href="#">Немски език за възрастни</a></li>
+                                <li><a href="#">Руски език за възрастни</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Езикови курсове за деца</a>
+                            <ul>
+                                <li><a href="#">Английски език за деца</a></li>
+                                <li><a href="#">Немски език за деца</a></li>
+                                <li><a href="#">Руски език за деца</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Teachers" asp-action="All">За нас</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Contacts" asp-action="Index">Контакти</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Blog" asp-action="All">Блог</a>
+                </li>
+                </ul>
             </div>
         </div>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -67,7 +74,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container text-center">
-            &copy; @DateTime.UtcNow.Year Трите сови - <a asp-area="" asp-controller="Contacts" asp-action="Home">Контакти</a>
+            &copy; @DateTime.UtcNow.Year Трите сови - <a asp-area="" asp-controller="Contacts">Контакти</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

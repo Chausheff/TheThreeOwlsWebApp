@@ -3,19 +3,21 @@
 @{
     ViewData["Title"] = "All";
 }
-
-<a asp-controller="Courses" asp-action="Add" class="btn btn-primary">Добави Курс</a>
-<div class="row">
-    @foreach (var course in Model)
-    {
-        <div onclick="openCourseDetails('@course.Id')" class="col-lg-4 course">
-            <img src="@course.Image" alt="@course.Name" />
-            <h5>@course.Name</h5>
-            <h5>Цена - @course.Price лв.</h5>
-            <div>
-                <a asp-controller="Courses" asp-action="Edit" asp-route-id="@course.Id" class="btn btn-danger">Промени</a>
-            </div>
-
-        </div>
-    }
+<div class="alert alert-primary pt-3 mt-3" role="alert">
+    <h1 class="text-center">Всички наши курсове:</h1>
 </div>
+    <a asp-controller="Courses" asp-action="Add" class="btn btn-primary">Добави Курс</a>
+    <div class="row">
+        @foreach (var course in Model)
+        {
+            <div onclick="openCourseDetails('@course.Id')" class="col-lg-4 course">
+                <img src="@course.Image" alt="@course.Name" />
+                <h5>@course.Name</h5>
+                <h5>Цена - @course.Price лв.</h5>
+                <div>
+                    <a asp-controller="Courses" asp-action="Edit" asp-route-id="@course.Id" class="btn btn-danger">Промени</a>
+                </div>
+
+            </div>
+        }
+    </div>
