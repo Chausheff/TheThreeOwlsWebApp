@@ -1,17 +1,16 @@
 ﻿@model IEnumerable<TheThreeOwlsWebApp.Models.Blog.BlogListingViewModel>
 
 @{
-    ViewData["Title"] = "Всички статии";
+    ViewData["Title"] = "Блог статии";
 }
 <div class="alert alert-primary pt-3 mt-3" role="alert">
     <h1 class="text-center">Всички статии:</h1>
 </div>
     <a asp-controller="Blog" asp-action="Add" class="btn btn-primary">Добави статия</a>
     <hr />
-    <div class="row p-2 m-2">
         @foreach (var article in Model)
         {
-            <div class="card  p-2 m-2" style="width: 18rem;">
+            <div class="card  p-2 m-2 col-12">
                 <img class="card" src="@article.Image" alt="@article.Title">
                 <div class="card-body">
                     <h5 class="card-title">@article.Title</h5>
@@ -20,4 +19,3 @@
                 </div>
             </div>
         }
-    </div>

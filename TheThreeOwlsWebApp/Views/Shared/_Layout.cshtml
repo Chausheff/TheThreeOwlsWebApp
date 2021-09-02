@@ -25,10 +25,10 @@
                 <ul class="clearfix">
                     <li><a asp-controller="Home" asp-action="Index">Начало</a></li>
                     <li>
-                        <a href="#">Занималня</a>
+                        <a asp-controller="StudyHall" asp-action="Index">Занималня</a>
                         <ul>
-                            <li><a href="#">Учебна занималня</a></li>
-                            <li><a href="#">Лятна занималня</a></li>
+                            <li><a asp-controller="StudyHall" asp-action="Educational">Учебна занималня</a></li>
+                            <li><a asp-controller="StudyHall" asp-action="Summer">Лятна занималня</a></li>
                         </ul>
                     </li>
                 <li>
@@ -48,6 +48,13 @@
                                 <li><a href="#">Английски език за деца</a></li>
                                 <li><a href="#">Немски език за деца</a></li>
                                 <li><a href="#">Руски език за деца</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Други езикови кърсове</a>
+                            <ul>
+                                <li><a href="#">Български език за чужденци</a></li>
+                                <li><a href="#">Български език за чужденци (деца)</a></li>
                             </ul>
                         </li>
                     </ul>
