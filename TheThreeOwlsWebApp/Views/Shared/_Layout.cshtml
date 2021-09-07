@@ -20,10 +20,9 @@
         <div class="menu-container">
             <div class="menu">
                 <a class="logo" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/Logo-removebg-preview.png" alt="Logo" />
+                    <img src="~/images/LogoFull-removebg-preview.png" alt="Logo" />
                 </a>
                 <ul class="clearfix">
-                    <li><a asp-controller="Home" asp-action="Index">Начало</a></li>
                     <li>
                         <a asp-controller="StudyHall" asp-action="Index">Занималня</a>
                         <ul>
@@ -31,43 +30,53 @@
                             <li><a asp-controller="StudyHall" asp-action="Summer">Лятна занималня</a></li>
                         </ul>
                     </li>
-                <li>
-                    <a asp-controller="Courses" asp-action="All">Езикови курсове</a>
-                    <ul>
-                        <li>
-                            <a href="#">Езикови курсове за възрастни</a>
-                            <ul>
-                                <li><a href="#">Английски език за възрастни</a></li>
-                                <li><a href="#">Немски език за възрастни</a></li>
-                                <li><a href="#">Руски език за възрастни</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Езикови курсове за деца</a>
-                            <ul>
-                                <li><a href="#">Английски език за деца</a></li>
-                                <li><a href="#">Немски език за деца</a></li>
-                                <li><a href="#">Руски език за деца</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Други езикови кърсове</a>
-                            <ul>
-                                <li><a href="#">Български език за чужденци</a></li>
-                                <li><a href="#">Български език за чужденци (деца)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Teachers" asp-action="All">За нас</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Contacts" asp-action="Index">Контакти</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Blog" asp-action="All">Блог</a>
-                </li>
+                    <li>
+                        <a asp-controller="Courses" asp-action="All">Езикови курсове</a>
+                        <ul>
+                            <li>
+                                <a href="#">Езикови курсове за възрастни</a>
+                                <ul>
+                                    <li><a href="#">Английски език за възрастни</a></li>
+                                    <li><a href="#">Немски език за възрастни</a></li>
+                                    <li><a href="#">Руски език за възрастни</a></li>
+                                    <li><a href="#">Български език за чужденци</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Езикови курсове за деца</a>
+                                <ul>
+                                    <li><a href="#">Английски език за деца</a></li>
+                                    <li><a href="#">Немски език за деца</a></li>
+                                    <li><a href="#">Руски език за деца</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Сугестопедия</a>
+                                <ul>
+                                    <li><a href="#">Какво е сугестопедия</a></li>
+                                    <li><a href="#">Сугестопедичен курс по английски език</a></li>
+                                    <li><a href="#">Сугестопедичен курс по немски език</a></li>
+                                    <li><a href="#">Сугестопедичен курс по руски език</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-controller="Courses" asp-action="Study">Ученически курсове</a>
+                        <ul>
+                            <li><a asp-controller="Courses" asp-action="Math">Курс математика</a></li>
+                            <li><a asp-controller="Courses" asp-action="Literature">Курс литература</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Teachers" asp-action="All">За нас</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Contacts" asp-action="Index">Контакти</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Blog" asp-action="All">Блог</a>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,5 @@
 ﻿@model TheThreeOwlsWebApp.Models.Blog.AddArticleModel
-
+@using Syncfusion.EJ2
 @{
     ViewData["Title"] = "Add";
 }
@@ -26,7 +26,8 @@
                     <button type="button" class="btn btn-primary">Добави снимка</button>
                     <button type="button" class="btn btn-primary">Добави линк</button>
                 </div>
-                <textarea asp-for="Text" class="form-control" rows="3"></textarea>
+                <ejs-richtexteditor >
+                </ejs-richtexteditor>
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
             <div class="form-group">

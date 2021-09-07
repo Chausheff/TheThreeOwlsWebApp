@@ -2,9 +2,6 @@
 @{
     ViewData["Title"] = "";
 }
-<div class="alert alert-primary pt-3 mt-3" role="alert">
-    <h1 class="text-center">Предстоящи курсове: </h1>
-</div>
     <div class="row">
         @foreach (var course in Model.courses)
         {
@@ -17,7 +14,7 @@
             </div>
         }
     </div>
-    <div class="alert alert-primary pt-3 mt-3" role="alert">
+    <div class="alert alert-primary pt-3 mt-3" role="alert"> 
         <h3 class="text-center ">Какво казват нашите ученици:</h3>
     </div>
     <a asp-controller="Home" asp-action="Add" class="btn btn-primary">Добави intro post</a>
