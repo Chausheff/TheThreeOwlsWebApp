@@ -19,6 +19,9 @@
         [Required]
         public bool ForKids { get; set; } = false;
 
+        [Required]
+        public bool Sugestopedy { get; set; } = false;
+
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
 
@@ -27,7 +30,7 @@
         public string Image { get; set; }
 
         [Required]
-        public string Languige { get; set; }
+        public CourseCategory Category{ get; set; }
 
         public int Position { get; set; }
     }

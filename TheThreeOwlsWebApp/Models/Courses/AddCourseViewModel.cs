@@ -1,6 +1,6 @@
-﻿using System;
-namespace TheThreeOwlsWebApp.Models.Courses
+﻿namespace TheThreeOwlsWebApp.Models.Courses
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using static Data.DataConstants;
@@ -16,6 +16,9 @@ namespace TheThreeOwlsWebApp.Models.Courses
         [Required]
         public bool ForKids { get; set; } = false;
 
+        [Required]
+        public bool Sugestopedy { get; set; } = false;
+
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
 
@@ -24,6 +27,10 @@ namespace TheThreeOwlsWebApp.Models.Courses
         public string Image { get; set; }
 
         [Required]
-        public string Languige { get; set; }
+        public string CategoryId { get; set; }
+        public AddCourseCategory Category{ get; set; }
+
+        public IList<ListCourseCategories> Categories { get; set; }
+
     }
 }

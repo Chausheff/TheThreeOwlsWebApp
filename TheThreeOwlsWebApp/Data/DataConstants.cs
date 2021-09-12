@@ -21,5 +21,7 @@
 
         public const int IntroUserMinAge = 3;
         public const int IntroUserMaxAge = 20;
+
+        public const int CourseCategoryMinLength = 3;
     }
 }

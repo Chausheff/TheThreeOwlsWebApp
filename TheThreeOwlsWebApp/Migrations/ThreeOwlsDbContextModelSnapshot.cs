@@ -279,6 +279,9 @@ namespace TheThreeOwlsWebApp.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("CategoryId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -287,10 +290,6 @@ namespace TheThreeOwlsWebApp.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Languige")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -305,9 +304,28 @@ namespace TheThreeOwlsWebApp.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,4)");
 
+                    b.Property<bool>("Sugestopedy")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("TheThreeOwlsWebApp.Data.Models.CourseCategory", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("TheThreeOwlsWebApp.Data.Models.IntroComment", b =>
@@ -465,6 +483,15 @@ namespace TheThreeOwlsWebApp.Migrations
                     b.Navigation("Article");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TheThreeOwlsWebApp.Data.Models.Course", b =>
+                {
+                    b.HasOne("TheThreeOwlsWebApp.Data.Models.CourseCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

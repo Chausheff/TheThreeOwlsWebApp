@@ -22,6 +22,8 @@
 
         public DbSet<User> Members { get; set; }
 
+        public DbSet<CourseCategory> Categories{ get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -6,7 +6,10 @@
 <div class="alert alert-primary pt-3 mt-3" role="alert">
     <h1 class="text-center">Всички наши курсове:</h1>
 </div>
-    <a asp-controller="Courses" asp-action="Add" class="btn btn-primary">Добави Курс</a>
+<div class="d-flex flex-row justify-content-center">
+    <a asp-controller="Courses" asp-action="Add" class="btn btn-primary m-3">Добави нов курс</a>
+    <a asp-controller="Courses" asp-action="AddCategory" class="btn btn-primary m-3">Добави нова категория</a>
+</div>
     <div class="row">
         @foreach (var course in Model)
         {
