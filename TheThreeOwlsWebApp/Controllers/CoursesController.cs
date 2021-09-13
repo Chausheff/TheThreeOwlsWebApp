@@ -16,9 +16,23 @@
             this.data = data;
         }
 
-        public IActionResult All()
+        public IActionResult All(string forKids,string sugestopedy)
         {
+            bool _forKids = false;
+            if (forKids == "true")
+            {
+                _forKids = true;
+            }
+
+            bool _sugestopedy = false;
+            if (sugestopedy == "true")
+            {
+                _sugestopedy = true;
+            }
+
             var courses = this.data.Courses
+                .Where(c => c.ForKids == _forKids)
+                .Where(c => c.Sugestopedy == _sugestopedy)
                  .Select(c => new CourseListingViewModel
                  {
                      Id = c.Id,
@@ -36,6 +50,7 @@
             return View(courses);
         }
 
+        public IActionResult Sugestopedy() => View();
         public IActionResult Study() => View();
         public IActionResult AddCategory() => View();
 
@@ -81,16 +96,27 @@
 
         public IActionResult Edit(string id)
         {
+            var categories = new List<ListCourseCategories>();
+            foreach (var ct in this.data.Categories)
+            {
+                categories.Add(new ListCourseCategories()
+                {
+                    CourseId = ct.Id,
+                    Language = ct.Language
+                });
+            }
+
             var course = data.Courses
                 .Where(c =>c.Id == id)
-                .Select(c => new CourseListingViewModel
+                .Select(c => new AddCourseViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,
                     Description = c.Description,
                     ForKids = c.ForKids,
                     Sugestopedy = c.Sugestopedy,
-                    Category = c.Category.Language,
+                    Category = new AddCourseCategory() {Language = c.Category.Language },
+                    Categories = categories,
                     Image = c.Image,
                     Price = c.Price,
                     Position = c.Position

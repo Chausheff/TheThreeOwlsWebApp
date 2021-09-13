@@ -14,7 +14,7 @@
         @foreach (var course in Model)
         {
             <div onclick="openCourseDetails('@course.Id')" class="col-lg-4 course">
-                <img src="@course.Image" alt="@course.Name" />
+                <img src="@course.Image" alt="@course.Name" style="width: 22rem;"/>
                 <h5>@course.Name</h5>
                 <h5>Цена - @course.Price лв.</h5>
                 <div>

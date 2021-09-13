@@ -1,4 +1,4 @@
-﻿@model TheThreeOwlsWebApp.Models.Courses.CourseListingViewModel
+﻿@model TheThreeOwlsWebApp.Models.Courses.AddCourseViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,13 +12,20 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="CategoryId">Език</label>
+                <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"CourseId","Language"))" class="form-control">
+                    <option>@Model.Category.Language</option>
+                </select>
+                <span asp-validation-for="Category" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control" rows="5" ></textarea>
+                <textarea asp-for="Description" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group form-check mr-5">
@@ -42,11 +49,6 @@
                 <label asp-for="Image" class="control-label"></label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

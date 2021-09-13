@@ -34,7 +34,7 @@
                         <a asp-controller="Courses" asp-action="All">Езикови курсове</a>
                         <ul>
                             <li>
-                                <a href="#">Езикови курсове за възрастни</a>
+                                <a asp-controller="Courses" asp-action="All" asp-route-forKids="false">Езикови курсове за възрастни</a>
                                 <ul>
                                     <li><a href="#">Английски език за възрастни</a></li>
                                     <li><a href="#">Немски език за възрастни</a></li>
@@ -43,7 +43,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Езикови курсове за деца</a>
+                                <a asp-controller="Courses" asp-action="All" asp-route-forKids="true">Езикови курсове за деца</a>
                                 <ul>
                                     <li><a href="#">Английски език за деца</a></li>
                                     <li><a href="#">Немски език за деца</a></li>
@@ -51,9 +51,9 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Сугестопедия</a>
+                                <a asp-controller="Courses" asp-action="Sugestopedy">Сугестопедия</a>
                                 <ul>
-                                    <li><a href="#">Какво е сугестопедия</a></li>
+                                    <li><a asp-controller="Courses" asp-action="Sugestopedy">Какво е сугестопедия</a></li>
                                     <li><a href="#">Сугестопедичен курс по английски език</a></li>
                                     <li><a href="#">Сугестопедичен курс по немски език</a></li>
                                     <li><a href="#">Сугестопедичен курс по руски език</a></li>

@@ -6,6 +6,8 @@
     using static Data.DataConstants;
     public class AddCourseViewModel
     {
+        public string Id { get; init; }
+
         [Required]
         [MaxLength(CourseNameMaxLength)]
         public string Name { get; init; }
@@ -32,5 +34,6 @@
 
         public IList<ListCourseCategories> Categories { get; set; }
 
+        public int Position { get; set; }
     }
 }
