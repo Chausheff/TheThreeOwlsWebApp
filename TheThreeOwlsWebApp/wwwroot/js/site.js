@@ -49,3 +49,16 @@ $(window).resize(function () {
 	$(".menu > ul > li").children("ul").hide();
 	$(".menu > ul").removeClass('show-on-mobile');
 });
+
+tinymce.init({
+	selector: "textarea.tinymce",
+	width: "100%",
+	height: 300,
+	statusbar: true,
+	plugins: [
+		"advlist link image lists charmap hr pagebreak",
+		"insertdatetime media nonbreaking",
+		"table emoticons paste"
+	],
+	toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist munlist outdent indent | link image | media fullpage | forecolor backcolor emoticons',
+});

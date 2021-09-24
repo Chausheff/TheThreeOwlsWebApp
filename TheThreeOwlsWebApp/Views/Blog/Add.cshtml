@@ -1,5 +1,4 @@
 ﻿@model TheThreeOwlsWebApp.Models.Blog.AddArticleModel
-@using Syncfusion.EJ2
 @{
     ViewData["Title"] = "Add";
 }
@@ -7,7 +6,7 @@
 <h4>Добави Статия</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="offset-2 col-md-6">
         <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -22,12 +21,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Text" class="control-label"></label>
-                <div class="p-2">
-                    <button type="button" class="btn btn-primary">Добави снимка</button>
-                    <button type="button" class="btn btn-primary">Добави линк</button>
-                </div>
-                <ejs-richtexteditor >
-                </ejs-richtexteditor>
+                <textarea asp-for="Text" class="tinymce"></textarea>
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -36,6 +30,7 @@
         </form>
     </div>
 </div>
+<script type="text/javascript" src="~/tinymce/tinymce.min.js"></script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
