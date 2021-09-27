@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Контакти";
 }
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <div class="text-center pb-5">
     <h1>
         Образователен център "Трите сови"
@@ -66,5 +67,9 @@
     <div class="form-group">
         <button onclick="sendMail()" class="btn btn-primary btn-block">Изпрати запитване</button>
     </div>
-
 </div>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("@ViewBag.appEmailjs");
+    })();
+</script>

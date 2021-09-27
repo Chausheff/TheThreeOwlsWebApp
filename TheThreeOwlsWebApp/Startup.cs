@@ -9,6 +9,7 @@ namespace TheThreeOwlsWebApp
     using Microsoft.Extensions.Hosting;
     using TheThreeOwlsWebApp.Data;
     using TheThreeOwlsWebApp.Infrastructure;
+    using TheThreeOwlsWebApp.Services.Courses;
 
     public class Startup
     {
@@ -38,6 +39,7 @@ namespace TheThreeOwlsWebApp
 
             services.
                 AddControllersWithViews();
+            services.AddTransient<ICourseFilterService, CourseFilterService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

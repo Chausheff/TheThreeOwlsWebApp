@@ -6,76 +6,33 @@
     using TheThreeOwlsWebApp.Data;
     using TheThreeOwlsWebApp.Data.Models;
     using TheThreeOwlsWebApp.Models.Courses;
+    using TheThreeOwlsWebApp.Services.Courses;
 
     public class CoursesController : Controller
     {
+        private readonly ICourseFilterService courses;
         private readonly ThreeOwlsDbContext data;
 
-        public CoursesController(ThreeOwlsDbContext data)
+        public CoursesController(ICourseFilterService courses,ThreeOwlsDbContext data)
         {
             this.data = data;
+            this.courses = courses;
         }
 
-        public IActionResult All(string forKids,string sugestopedy)
-        {
-            bool _forKids = false;
-            if (forKids == "true")
-            {
-                _forKids = true;
-            }
+        public IActionResult All(string modifier) 
+            => View(this.courses.Courses(modifier));
 
-            bool _sugestopedy = false;
-            if (sugestopedy == "true")
-            {
-                _sugestopedy = true;
-            }
+        public IActionResult Sugestopedy() 
+            => View();
 
-            var courses = this.data.Courses
-                .Where(c => c.ForKids == _forKids)
-                .Where(c => c.Sugestopedy == _sugestopedy)
-                 .Select(c => new CourseListingViewModel
-                 {
-                     Id = c.Id,
-                     Name = c.Name,
-                     Description = c.Description,
-                     ForKids = c.ForKids,
-                     Sugestopedy = c.Sugestopedy,
-                     Price = c.Price,
-                     Image = c.Image,
-                     Category = c.Category.Language,
-                     Position = c.Position
-                 })
-                 .ToList();
+        public IActionResult Study() 
+            => View();
 
-            return View(courses);
-        }
+        public IActionResult AddCategory() 
+            => View();
 
-        public IActionResult Sugestopedy() => View();
-        public IActionResult Study() => View();
-        public IActionResult AddCategory() => View();
-
-        public IActionResult Details(string Id)
-        {
-            var course = this.data.Courses
-                .Where(c => c.Id == Id)
-                 .Select(c => new CourseListingViewModel
-                 {
-                     Name = c.Name,
-                     Description = c.Description,
-                     ForKids = c.ForKids,
-                     Sugestopedy = c.Sugestopedy,
-                     Price = c.Price,
-                     Image = c.Image,
-                     Category = c.Category.Language,
-                 })
-                 .FirstOrDefault();
-            if (course != null)
-            {
-                return View(course);
-            }
-
-            return NotFound();
-        }
+        public IActionResult Details(string Id) 
+            => (this.courses.TakeCourse(Id) != null) ? View(this.courses.TakeCourse(Id)) : NotFound();
 
         public IActionResult Add()
         {

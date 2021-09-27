@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/customCss.css" />
     <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("user_h93S7BrOPE1EHjvVUQkqB");
-        })();
-    </script>
 </head>
 <body>
     <header>
@@ -31,10 +25,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="Courses" asp-action="All">Езикови курсове</a>
+                        <a asp-controller="Courses" asp-action="All" asp-route-modifier="All">Езикови курсове</a>
                         <ul>
                             <li>
-                                <a asp-controller="Courses" asp-action="All" asp-route-forKids="false">Езикови курсове за възрастни</a>
+                                <a asp-controller="Courses" asp-action="All" asp-route-modifier="elders">Езикови курсове за възрастни</a>
                                 <ul>
                                     <li><a href="#">Английски език за възрастни</a></li>
                                     <li><a href="#">Немски език за възрастни</a></li>
@@ -43,7 +37,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a asp-controller="Courses" asp-action="All" asp-route-forKids="true">Езикови курсове за деца</a>
+                                <a asp-controller="Courses" asp-action="All" asp-route-modifier="ForKids">Езикови курсове за деца</a>
                                 <ul>
                                     <li><a href="#">Английски език за деца</a></li>
                                     <li><a href="#">Немски език за деца</a></li>
