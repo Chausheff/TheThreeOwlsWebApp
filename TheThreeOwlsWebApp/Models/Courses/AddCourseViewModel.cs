@@ -19,7 +19,7 @@
         public bool ForKids { get; set; } = false;
 
         [Required]
-        public bool Sugestopedy { get; set; } = false;
+        public bool Suggestopedia { get; set; } = false;
 
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }

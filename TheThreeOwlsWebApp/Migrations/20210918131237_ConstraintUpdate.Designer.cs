@@ -306,7 +306,7 @@ namespace TheThreeOwlsWebApp.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,4)");
 
-                    b.Property<bool>("Sugestopedy")
+                    b.Property<bool>("Suggestopedia")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");

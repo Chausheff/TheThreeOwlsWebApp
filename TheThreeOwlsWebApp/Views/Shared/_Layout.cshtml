@@ -25,41 +25,40 @@
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="Courses" asp-action="All" asp-route-modifier="All">Езикови курсове</a>
+                        <a asp-controller="Courses" asp-action="All" asp-route-modifier="All">Нашите курсове</a>
                         <ul>
                             <li>
                                 <a asp-controller="Courses" asp-action="All" asp-route-modifier="elders">Езикови курсове за възрастни</a>
                                 <ul>
-                                    <li><a href="#">Английски език за възрастни</a></li>
-                                    <li><a href="#">Немски език за възрастни</a></li>
-                                    <li><a href="#">Руски език за възрастни</a></li>
-                                    <li><a href="#">Български език за чужденци</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="elders" asp-route-lang="Английски език">Английски език за възрастни</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="elders" asp-route-lang="Немски език">Немски език за възрастни</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="elders" asp-route-lang="Руски език">Руски език за възрастни</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="elders" asp-route-lang="Български език за чужденци">Български език за чужденци</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a asp-controller="Courses" asp-action="All" asp-route-modifier="ForKids">Езикови курсове за деца</a>
                                 <ul>
-                                    <li><a href="#">Английски език за деца</a></li>
-                                    <li><a href="#">Немски език за деца</a></li>
-                                    <li><a href="#">Руски език за деца</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="ForKids" asp-route-lang="Английски език">Английски език за деца</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="ForKids" asp-route-lang="Немски език">Немски език за деца</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="ForKids" asp-route-lang="Руски език">Руски език за деца</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a asp-controller="Courses" asp-action="Sugestopedy">Сугестопедия</a>
+                                <a asp-controller="Courses" asp-action="Suggestopedia">Сугестопедия</a>
                                 <ul>
-                                    <li><a asp-controller="Courses" asp-action="Sugestopedy">Какво е сугестопедия</a></li>
-                                    <li><a href="#">Сугестопедичен курс по английски език</a></li>
-                                    <li><a href="#">Сугестопедичен курс по немски език</a></li>
-                                    <li><a href="#">Сугестопедичен курс по руски език</a></li>
+                                    <li><a asp-controller="Courses" asp-action="Suggestopedia">Какво е сугестопедия</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="Suggestopedia" asp-route-lang="Английски език">Сугестопедичен курс по английски език</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-modifier="Suggestopedia" asp-route-lang="Немски език">Сугестопедичен курс по немски език</a></li>
                                 </ul>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a asp-controller="Courses" asp-action="Study">Ученически курсове</a>
-                        <ul>
-                            <li><a asp-controller="Courses" asp-action="Math">Курс математика</a></li>
-                            <li><a asp-controller="Courses" asp-action="Literature">Курс литература</a></li>
+                            <li>
+                                <a asp-controller="Courses" asp-action="All" asp-route-modifier="other">Ученически курсове</a>
+                                <ul>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-lang="Математика">Курс математика</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-lang="Литература">Курс литература</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li>

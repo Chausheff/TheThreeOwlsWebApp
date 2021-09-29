@@ -19,10 +19,10 @@
             this.courses = courses;
         }
 
-        public IActionResult All(string modifier) 
-            => View(this.courses.Courses(modifier));
+        public IActionResult All(string modifier,string lang) 
+            => View(this.courses.Courses(modifier,lang));
 
-        public IActionResult Sugestopedy() 
+        public IActionResult Suggestopedia() 
             => View();
 
         public IActionResult Study() 
@@ -71,7 +71,7 @@
                     Name = c.Name,
                     Description = c.Description,
                     ForKids = c.ForKids,
-                    Sugestopedy = c.Sugestopedy,
+                    Suggestopedia = c.Suggestopedia,
                     Category = new AddCourseCategory() {Language = c.Category.Language },
                     Categories = categories,
                     Image = c.Image,
@@ -131,7 +131,7 @@
             {
                 Name = course.Name,
                 ForKids = course.ForKids,
-                Sugestopedy = course.Sugestopedy,
+                Suggestopedia = course.Suggestopedia,
                 Price = course.Price,
                 Image = course.Image,
                 Description = course.Description,
@@ -159,7 +159,7 @@
             editedCourse.Name = course.Name;
             editedCourse.Price = course.Price;
             editedCourse.ForKids = course.ForKids;
-            editedCourse.Sugestopedy= course.Sugestopedy;
+            editedCourse.Suggestopedia = course.Suggestopedia;
             editedCourse.Description = course.Description;
             editedCourse.Position = course.Position;
 

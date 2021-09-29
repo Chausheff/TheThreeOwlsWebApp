@@ -5,7 +5,7 @@
 
     public interface ICourseFilterService
     {
-        IEnumerable<CourseListingViewModel> Courses(string modifier);
+        IEnumerable<CourseListingViewModel> Courses(string modifier,string lang);
         CourseListingViewModel TakeCourse(string Id);
     }
 }

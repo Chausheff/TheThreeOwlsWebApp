@@ -12,31 +12,33 @@
         public CourseFilterService(ThreeOwlsDbContext data)
             => this.data = data;
 
-        public IEnumerable<CourseListingViewModel> Courses(string modifier)
+        public IEnumerable<CourseListingViewModel> Courses(string modifier,string lang)
         {
             switch (modifier)
             {
                 case "ForKids":
-                    return ForKidsFilter(true);
+                    return ForKidsFilter(true,lang);
                 case "elders":
-                    return ForKidsFilter(false);
-                case "Sugestopedy":
-                    return Sugestopedy();
+                    return ForKidsFilter(false,lang);
+                case "Suggestopedia":
+                    return Suggestopedia();
                 case "All":
-                    return All();
+                    return All(null);
+                case "other":
+                    return All("other");
                 default:
                     break;
             }
 
             var courses = this.data.Courses
-            .Where(c =>c.Category.Language == modifier)
+            .Where(c => (lang != null) ? c.Category.Language == lang : true)
             .Select(c => new CourseListingViewModel
             {
                 Id = c.Id,
                 Name = c.Name,
                 Description = c.Description,
                 ForKids = c.ForKids,
-                Sugestopedy = c.Sugestopedy,
+                Suggestopedia = c.Suggestopedia,
                 Price = c.Price,
                 Image = c.Image,
                 Category = c.Category.Language,
@@ -46,16 +48,17 @@
 
             return courses;
 
-            IEnumerable<CourseListingViewModel> All()
+            IEnumerable<CourseListingViewModel> All(string other)
             {
                 var courses = this.data.Courses
+                .Where(c => (other != null) ? (c.Category.Language == "Математика")||(c.Category.Language == "Литература") : true)
                 .Select(c => new CourseListingViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,
                     Description = c.Description,
                     ForKids = c.ForKids,
-                    Sugestopedy = c.Sugestopedy,
+                    Suggestopedia = c.Suggestopedia,
                     Price = c.Price,
                     Image = c.Image,
                     Category = c.Category.Language,
@@ -66,17 +69,18 @@
                 return courses;
             }
 
-            IEnumerable<CourseListingViewModel> ForKidsFilter(bool forKids)
+            IEnumerable<CourseListingViewModel> ForKidsFilter(bool forKids,string lang)
             {
                 var courses = this.data.Courses
                 .Where(c => c.ForKids == forKids)
+                .Where(c => (lang != null) ? c.Category.Language == lang : true)
                 .Select(c => new CourseListingViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,
                     Description = c.Description,
                     ForKids = c.ForKids,
-                    Sugestopedy = c.Sugestopedy,
+                    Suggestopedia = c.Suggestopedia,
                     Price = c.Price,
                     Image = c.Image,
                     Category = c.Category.Language,
@@ -87,17 +91,17 @@
                 return courses;
             }
 
-            IEnumerable<CourseListingViewModel> Sugestopedy()
+            IEnumerable<CourseListingViewModel> Suggestopedia()
             {
                 var courses = this.data.Courses
-                .Where(c => c.Sugestopedy == true)
+                .Where(c => c.Suggestopedia == true)
                 .Select(c => new CourseListingViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,
                     Description = c.Description,
                     ForKids = c.ForKids,
-                    Sugestopedy = c.Sugestopedy,
+                    Suggestopedia = c.Suggestopedia,
                     Price = c.Price,
                     Image = c.Image,
                     Category = c.Category.Language,
@@ -119,7 +123,7 @@
                 Name = c.Name,
                 Description = c.Description,
                 ForKids = c.ForKids,
-                Sugestopedy = c.Sugestopedy,
+                Suggestopedia = c.Suggestopedia,
                 Price = c.Price,
                 Image = c.Image,
                 Category = c.Category.Language,

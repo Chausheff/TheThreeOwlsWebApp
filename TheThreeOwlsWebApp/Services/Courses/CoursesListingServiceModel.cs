@@ -10,7 +10,7 @@
 
         public bool ForKids { get; set; } = false;
 
-        public bool Sugestopedy { get; set; }
+        public bool Suggestopedia { get; set; }
 
         public decimal Price { get; set; }
 
