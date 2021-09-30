@@ -24,6 +24,8 @@
 
         public DbSet<CourseCategory> Categories{ get; set; }
 
+        public DbSet<StudyHall> StudyHalls{ get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -23,5 +23,8 @@
         public const int IntroUserMaxAge = 20;
 
         public const int CourseCategoryMinLength = 3;
+
+        public const int StudyHallMinLendth = 3;
+        public const int StudyHallMaxLendth = 50;
     }
 }

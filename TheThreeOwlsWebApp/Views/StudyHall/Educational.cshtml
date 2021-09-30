@@ -1,5 +1,9 @@
-﻿@{
+﻿@model TheThreeOwlsWebApp.Models.StudyHall.StudyHallListingModel
+@{
     ViewData["Title"] = "Учебна занималня";
 }
 
-<img src="https://brainacademy.bg/wp-content/uploads/2018/09/parallax-5-1024x683.jpg" alt="Alternate Text" />
+<img src="@Model.Image" alt="@Model.Title" />
+<p class="col-sm-12">
+    @Html.Raw(Model.Text)
+</p>

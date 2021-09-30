@@ -8,7 +8,10 @@
         {
             return View();
         }
-
+        public IActionResult Add()
+        {
+            return View();
+        }
         public IActionResult Summer()
         {
             return View();

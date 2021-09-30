@@ -73,7 +73,7 @@
             {
                 var courses = this.data.Courses
                 .Where(c => c.ForKids == forKids)
-                .Where(c => (lang != null) ? c.Category.Language == lang : true)
+                .Where(c => (lang != null) ? c.Category.Language == lang : (c.Category.Language != "Математика" && c.Category.Language != "Литература"))
                 .Select(c => new CourseListingViewModel
                 {
                     Id = c.Id,

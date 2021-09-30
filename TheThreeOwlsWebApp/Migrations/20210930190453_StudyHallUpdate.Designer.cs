@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheThreeOwlsWebApp.Data;
 
 namespace TheThreeOwlsWebApp.Migrations
 {
     [DbContext(typeof(ThreeOwlsDbContext))]
-    partial class ThreeOwlsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210930190453_StudyHallUpdate")]
+    partial class StudyHallUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -358,8 +360,9 @@ namespace TheThreeOwlsWebApp.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("Educational")
-                        .HasColumnType("bit");
+                    b.Property<string>("Educational")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .IsRequired()

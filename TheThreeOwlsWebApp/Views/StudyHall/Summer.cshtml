@@ -1,4 +1,8 @@
-﻿@{
+﻿@model TheThreeOwlsWebApp.Models.StudyHall.StudyHallListingModel
+@{
     ViewData["Title"] = "Учебна занималня";
 }
-<img src="https://1740009751.rsc.cdn77.org/sites/balkanbaba/docs/bg/image_1369727143_78.jpg?t=true&w=400&h=320" alt="Alternate Text" />
+<img src="@Model.Image" alt="@Model.Title" />
+<p class="col-sm-12">
+    @Html.Raw(Model.Text)
+</p>
