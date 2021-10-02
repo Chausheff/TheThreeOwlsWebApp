@@ -8,6 +8,7 @@ namespace TheThreeOwlsWebApp
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using TheThreeOwlsWebApp.Data;
+    using TheThreeOwlsWebApp.Data.Models;
     using TheThreeOwlsWebApp.Infrastructure;
     using TheThreeOwlsWebApp.Services.Courses;
 

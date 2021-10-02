@@ -1,9 +1,9 @@
 ﻿namespace TheThreeOwlsWebApp.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    public class LoginController : Controller
+    public class AdministrationController : Controller
     {
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }
