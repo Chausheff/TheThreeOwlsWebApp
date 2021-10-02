@@ -6,16 +6,19 @@
 <div class="alert alert-primary pt-3 mt-3" role="alert">
     <h1 class="text-center">Всички статии:</h1>
 </div>
+@if (User.Identity.IsAuthenticated)
+{
     <a asp-controller="Blog" asp-action="Add" class="btn btn-primary">Добави статия</a>
-    <hr />
-        @foreach (var article in Model)
-        {
-<div class="card  p-2 m-2 col-12">
-    <h5 class="card-title text-center font-weight-bold">@article.Title</h5>
-    <img class="card" src="@article.Image" alt="@article.Title">
-    <div class="card-body">
-        <p class="card-text">@article.Text</p>
-        <a asp-controller="Blog" asp-action="Details" asp-route-id="@article.Id" class="btn btn-primary">Виж още</a>
+}
+<hr />
+@foreach (var article in Model)
+{
+    <div class="card  p-2 m-2 col-12">
+        <h5 class="card-title text-center font-weight-bold">@article.Title</h5>
+        <img class="card" src="@article.Image" alt="@article.Title">
+        <div class="card-body">
+            <p class="card-text">@article.Text</p>
+            <a asp-controller="Blog" asp-action="Details" asp-route-id="@article.Id" class="btn btn-primary">Виж още</a>
+        </div>
     </div>
-</div>
-        }
+}

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheThreeOwlsWebApp.Data;
     using TheThreeOwlsWebApp.Data.Models;
@@ -28,12 +29,14 @@
         public IActionResult Study() 
             => View();
 
+        [Authorize]
         public IActionResult AddCategory() 
             => View();
 
         public IActionResult Details(string Id) 
             => (this.courses.TakeCourse(Id) != null) ? View(this.courses.TakeCourse(Id)) : NotFound();
 
+        [Authorize]
         public IActionResult Add()
         {
             var emptyModel = new AddCourseViewModel();
@@ -51,6 +54,7 @@
             return View(emptyModel);
         }
 
+        [Authorize]
         public IActionResult Edit(string id)
         {
             var categories = new List<ListCourseCategories>();
@@ -83,6 +87,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult AddCategory(AddCourseCategory category)
         {
             if (!ModelState.IsValid)
@@ -107,6 +112,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(AddCourseViewModel course)
         {
             var categories = new List<ListCourseCategories>();
@@ -144,6 +150,7 @@
             return RedirectToAction("All", "Courses");
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(CourseListingViewModel course)
         {
             var editedCourse = data.Courses
@@ -169,6 +176,7 @@
             return RedirectToAction("All", "Courses");
         }
 
+        [Authorize]
         public IActionResult Delete(string id)
         {
             var removedCourse = this.data.Courses

@@ -6,4 +6,7 @@
 <p class="col-sm-12">
     @Html.Raw(Model.Text)
 </p>
-<a asp-controller="StudyHall" asp-action="Edit" asp-route-title="@Model.Title" class="btn btn-primary">Промени</a>
+@if (User.Identity.IsAuthenticated)
+{
+    <a asp-controller="StudyHall" asp-action="Edit" asp-route-title="@Model.Title" class="btn btn-primary">Промени</a>
+}

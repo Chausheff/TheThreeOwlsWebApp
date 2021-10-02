@@ -1,5 +1,6 @@
 ﻿namespace TheThreeOwlsWebApp.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Models.Teachers;
     using System.Linq;
@@ -31,8 +32,10 @@
             return View(teachers);
         }
 
+        [Authorize]
         public IActionResult Add() => View();
 
+        [Authorize]
         public IActionResult Edit(string id)
         {
             var teacher = this.data.Teachers
@@ -76,6 +79,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(TeacherAddingViewModel teacher)
         {
             if (this.data.Teachers.Any(t => t.FirstName == teacher.FirstName && t.LastName == teacher.LastName))
@@ -101,6 +105,7 @@
             return RedirectToAction("All", "Teachers");
         }
 
+        [Authorize]
         public IActionResult EditTeacher(TeacherListingViewModel teacher)
         {
             var editedTeacher = data.Teachers.FirstOrDefault(t => t.Id == teacher.Id);
@@ -121,7 +126,7 @@
             return RedirectToAction("All", "Teachers");
         }
 
-
+        [Authorize]
         public IActionResult Delete(string id)
         {
             var removedTeacher = this.data.Teachers

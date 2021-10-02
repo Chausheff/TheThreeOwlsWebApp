@@ -1,5 +1,6 @@
 ﻿namespace TheThreeOwlsWebApp.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using System.Diagnostics;
@@ -54,9 +55,11 @@
             return View(home);
         }
 
+        [Authorize]
         public IActionResult Add() => View();
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(CarouselIntroListingModel intro)
         {
             if (!ModelState.IsValid)
@@ -81,6 +84,7 @@
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public IActionResult Delete(string id)
         {
             var comment = this.data.IntroComments

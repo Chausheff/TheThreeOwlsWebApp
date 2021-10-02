@@ -1,7 +1,8 @@
 ﻿namespace TheThreeOwlsWebApp.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
     using System.Linq;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
     using TheThreeOwlsWebApp.Data;
     using TheThreeOwlsWebApp.Data.Models;
     using TheThreeOwlsWebApp.Models.Blog;
@@ -28,6 +29,7 @@
             return View(articles);
         }
 
+        [Authorize]
         public IActionResult Edit(string id)
         {
             var article = this.data.Articles
@@ -48,6 +50,7 @@
             return View(article);
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(BlogListingViewModel article)
         {
             var editedArticle = data.Articles.FirstOrDefault(a => a.Id == article.Id);
@@ -67,6 +70,7 @@
             return RedirectToAction("All", "Blog");
         }
 
+        [Authorize]
         public IActionResult Delete(string id)
         {
             var removedArticle = this.data.Articles
@@ -82,6 +86,7 @@
             return RedirectToAction("All", "Blog");
         }
 
+        [Authorize]
         public IActionResult Add()
         {
             return View();
@@ -108,6 +113,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(AddArticleModel article)
         {
             if (!ModelState.IsValid)

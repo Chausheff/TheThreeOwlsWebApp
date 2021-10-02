@@ -6,7 +6,10 @@
 <div class="alert alert-primary pt-3 mt-3" role="alert">
     <h1 class="text-center">Това сме ние:</h1>
 </div>
+@if (User.Identity.IsAuthenticated)
+{
     <a asp-controller="Teachers" asp-action="Add" class="btn btn-primary">Добави Преподавател</a>
+}
     <div class="row">
         @foreach (var teacher in Model)
         {

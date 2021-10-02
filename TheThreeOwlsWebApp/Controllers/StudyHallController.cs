@@ -2,14 +2,15 @@
 {
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
     using TheThreeOwlsWebApp.Data;
     using TheThreeOwlsWebApp.Models.StudyHall;
 
-    public class StudyHall : Controller
+    public class StudyHallController : Controller
     {
         private readonly ThreeOwlsDbContext data;
 
-        public StudyHall(ThreeOwlsDbContext data)
+        public StudyHallController(ThreeOwlsDbContext data)
         {
             this.data = data;
         }
@@ -19,6 +20,7 @@
             return View();
         }
 
+        [Authorize]
         public IActionResult Edit(string title)
         {
             var studyHall = data.StudyHalls
@@ -100,6 +102,33 @@
                 this.data.SaveChanges();
             }
             return View(studyHall);
+        }
+        
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(AddStudyHallModel studyHall)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(studyHall);
+            }
+
+            var newStudyHall = data.StudyHalls
+                .First(sh => sh.Educational == studyHall.Educational);
+
+            if (newStudyHall == null)
+            {
+                return NotFound();
+            }
+
+            newStudyHall.Image = studyHall.Image;
+            newStudyHall.Title = studyHall.Title;
+            newStudyHall.Text = studyHall.Text;
+
+            this.data.StudyHalls.Update(newStudyHall);
+            this.data.SaveChanges();
+
+            return RedirectToAction("Index" , "StudyHall");
         }
     }
 }
