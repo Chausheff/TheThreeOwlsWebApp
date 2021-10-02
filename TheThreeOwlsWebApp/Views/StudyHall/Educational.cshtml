@@ -2,8 +2,8 @@
 @{
     ViewData["Title"] = "Учебна занималня";
 }
-
 <img src="@Model.Image" alt="@Model.Title" />
 <p class="col-sm-12">
     @Html.Raw(Model.Text)
 </p>
+<a asp-controller="StudyHall" asp-action="Edit" asp-route-title="@Model.Title" class="btn btn-primary">Промени</a>

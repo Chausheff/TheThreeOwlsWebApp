@@ -1,16 +1,16 @@
-﻿@model TheThreeOwlsWebApp.Models.StudyHall.AddStudyHallModel
+﻿@model TheThreeOwlsWebApp.Models.StudyHall.StudyHallListingModel
 
 @{
-    ViewData["Title"] = "Add";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Add</h1>
+<h1>Edit</h1>
 
-<h4>AddStudyHallModel</h4>
+<h4>StudyHallListingModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <form asp-action="Add">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -22,18 +22,13 @@
                 <textarea asp-for="Text" class="tinymce"></textarea>
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Educational" /> @Html.DisplayNameFor(model => model.Educational)
-                </label>
-            </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -44,8 +39,6 @@
 </div>
 
 <script type="text/javascript" src="~/tinymce/tinymce.min.js"></script>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
