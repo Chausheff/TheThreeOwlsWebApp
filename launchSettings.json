@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "serviceActions": {
+        "thethreeowlswebapp": "StartWithoutDebugging"
+      },
+      "commandVersion": "1.0"
+    }
+  }
+}
