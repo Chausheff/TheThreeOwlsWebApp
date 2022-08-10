@@ -17,7 +17,7 @@
         <h5 class="card-title text-center font-weight-bold">@article.Title</h5>
         <img class="card" src="@article.Image" alt="@article.Title">
         <div class="card-body">
-            <p class="card-text">@article.Text</p>
+            @*<p class="card-text">@article.Text</p>*@
             <a asp-controller="Blog" asp-action="Details" asp-route-title="@article.Title" class="btn btn-primary">Виж още</a>
         </div>
     </div>
