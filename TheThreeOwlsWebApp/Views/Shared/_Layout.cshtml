@@ -1,15 +1,36 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Трите Сови</title>
+    <meta name="description" content="Езиков образователен център Трите сови гр.Бургас. Групово и индивидуално обучение. Лятна и учебна занималня">
+    <title>@ViewData["Title"]Образователен център - Трите Сови гр. Бургас</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/customCss.css" />
     <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="adminBar">
+            <a class="adminBtn" href="https://postimages.org/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+            </a>
+            <a class="adminBtn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+            <a class="adminBtn" asp-area="Identity" asp-page="/Account/Register">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+            </a>
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button class="adminBtn" type="submit">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    }
     <header>
         <div class="menu-container">
             <div class="menu">

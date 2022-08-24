@@ -19,7 +19,7 @@
             <div onclick="openCourseDetails('@course.Id')" class="col-lg-4 course">
                 <img src="@course.Image" alt="@course.Name" style="width: 22rem;" />
                 <h5>@course.Name</h5>
-                <h5>Цена - @course.Price.ToString("#,##") лв.</h5>
+                @*<h5>Цена - @course.Price.ToString("#,##") лв.</h5>*@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <div>
