@@ -21,10 +21,10 @@
         }
 
         [Authorize]
-        public IActionResult Edit(string title)
+        public IActionResult Edit(string Id)
         {
             var studyHall = data.StudyHalls
-                .Where(sh => sh.Title == title)
+                .Where(sh => sh.Id == Id)
                 .Select(sh => new StudyHallListingModel
                 {
                     Image = sh.Image,
@@ -32,6 +32,11 @@
                     Title = sh.Title
                 })
                 .FirstOrDefault();
+
+            if (studyHall == null)
+            {
+                return NotFound();
+            }
 
             return View(studyHall);
         }
@@ -42,6 +47,7 @@
                 .Where(sh => sh.Educational == false)
                 .Select(sh => new StudyHallListingModel
                 {
+                    Id = sh.Id,
                     Image = sh.Image,
                     Text = sh.Text,
                     Title = sh.Title
@@ -76,6 +82,7 @@
                .Where(sh => sh.Educational == true)
                .Select(sh => new StudyHallListingModel
                {
+                   Id = sh.Id,
                    Image = sh.Image,
                    Text = sh.Text,
                    Title = sh.Title
@@ -114,7 +121,7 @@
             }
 
             var newStudyHall = data.StudyHalls
-                .First(sh => sh.Educational == studyHall.Educational);
+                .First(sh => sh.Id == studyHall.Id);
 
             if (newStudyHall == null)
             {

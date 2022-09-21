@@ -8,5 +8,5 @@
 </p>
 @if (User.Identity.IsAuthenticated)
 {
-    <a asp-controller="StudyHall" asp-action="Edit" asp-route-title="@Model.Title" class="btn btn-primary">Промени</a>
+    <a asp-controller="StudyHall" asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-primary">Промени</a>
 }

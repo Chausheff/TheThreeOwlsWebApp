@@ -92,10 +92,10 @@
             return View();
         }
 
-        public IActionResult Details(string Id)
+        public IActionResult Details(string title)
         {
             var article = this.data.Articles
-                .Where(a => a.Id == Id)
+                .Where(a => a.Title == title)
                  .Select(a => new BlogListingViewModel
                  {
                     Id = a.Id,

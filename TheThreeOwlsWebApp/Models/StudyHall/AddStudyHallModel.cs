@@ -6,6 +6,8 @@
 
     public class AddStudyHallModel
     {
+        public string Id { get; set; }
+
         [Required]
         [StringLength(StudyHallMaxLendth, MinimumLength = StudyHallMinLendth)]
         [DisplayName("Заглавие")]

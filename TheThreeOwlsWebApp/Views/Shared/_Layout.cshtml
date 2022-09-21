@@ -1,15 +1,36 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Трите Сови</title>
+    <meta name="description" content="Езиков образователен център Трите сови гр.Бургас. Групово и индивидуално обучение. Лятна и учебна занималня">
+    <title>@ViewData["Title"]Образователен център - Трите Сови гр. Бургас</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/customCss.css" />
     <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="adminBar">
+            <a class="adminBtn" href="https://postimages.org/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-cloud-upload" aria-hidden="true"> Качи снимка</i>
+            </a>
+            <a class="adminBtn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                <i class="fa fa-user" aria-hidden="true">Потребител</i>
+            </a>
+            <a class="adminBtn" asp-area="Identity" asp-page="/Account/Register">
+                <i class="fa fa-user-plus" aria-hidden="true">Добави потребител</i>
+            </a>
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button class="adminBtn" type="submit">
+                    <i class="fa fa-sign-out" aria-hidden="true">Изход</i>
+                </button>
+            </form>
+        </div>
+    }
     <header>
         <div class="menu-container">
             <div class="menu">
@@ -18,14 +39,14 @@
                 </a>
                 <ul class="clearfix">
                     <li>
-                        <a asp-controller="StudyHall" asp-action="Index">Занималня</a>
+                        <a>Занималня</a>
                         <ul>
                             <li><a asp-controller="StudyHall" asp-action="Educational">Учебна занималня</a></li>
                             <li><a asp-controller="StudyHall" asp-action="Summer">Лятна занималня</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="Courses" asp-action="All" asp-route-modifier="All">Предлагани курсове</a>
+                        <a>Предлагани курсове</a>
                         <ul>
                             <li>
                                 <a asp-controller="Courses" asp-action="All" asp-route-modifier="elders">Езикови курсове за възрастни</a>
@@ -53,10 +74,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a asp-controller="Courses" asp-action="All" asp-route-modifier="other">Ученически курсове</a>
+                                <a asp-controller="Courses" asp-action="All" asp-route-modifier="other">Други услуги</a>
                                 <ul>
-                                    <li><a asp-controller="Courses" asp-action="All" asp-route-lang="Математика">Курс математика</a></li>
-                                    <li><a asp-controller="Courses" asp-action="All" asp-route-lang="Литература">Курс литература</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-lang="Математика">Курс по математика</a></li>
+                                    <li><a asp-controller="Courses" asp-action="All" asp-route-lang="Литература">Курс по литература</a></li>
                                 </ul>
                             </li>
                         </ul>
