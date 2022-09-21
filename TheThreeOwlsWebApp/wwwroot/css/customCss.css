@@ -323,10 +323,14 @@ Mobile style's
     display: flex;
     height:1.8rem;
     justify-content: end;
-    background-color:antiquewhite;
+    background-color:lightcoral;
     gap:5px;
 }
 
 .adminBtn {
     border:solid;
+}
+
+.rounded-circle {
+max-height:15rem;
 }

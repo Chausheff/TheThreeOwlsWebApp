@@ -29,7 +29,7 @@
                     @foreach (var introComment in Model.intros)
                     {
                         <div class="carousel-item @(introComment == Model.intros.First() ? "active" :"")">
-                            <div class="container text-center">
+                            <div class="container text-center carouselCard">
                                 <img class="rounded-circle" src="@introComment.Picture" alt="@introComment.Author">
                                 <div class="card-body">
                                     <h5 class="card-title">@introComment.Author на @introComment.AuthorAge години</h5>

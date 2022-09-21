@@ -16,17 +16,17 @@
     {
         <div class="adminBar">
             <a class="adminBtn" href="https://postimages.org/" target="_blank" rel="noopener noreferrer">
-                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                <i class="fa fa-cloud-upload" aria-hidden="true"> Качи снимка</i>
             </a>
             <a class="adminBtn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="fa fa-user" aria-hidden="true">Потребител</i>
             </a>
             <a class="adminBtn" asp-area="Identity" asp-page="/Account/Register">
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <i class="fa fa-user-plus" aria-hidden="true">Добави потребител</i>
             </a>
             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button class="adminBtn" type="submit">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <i class="fa fa-sign-out" aria-hidden="true">Изход</i>
                 </button>
             </form>
         </div>
